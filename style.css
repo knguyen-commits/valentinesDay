@@ -1,0 +1,77 @@
+
+html {
+  background-image: linear-gradient(black,white);
+  background-image: url(https://th.bing.com/th/id/R.f810a9f4f7f02b563490b748b366ecd0?rik=aTTJa40865TqJw&riu=http%3a%2f%2fwww.designbolts.com%2fwp-content%2fuploads%2f2019%2f01%2fHearts-High-Resolution-Image.jpg&ehk=ggemAtKnZd9eg%2bw06m8MA6B3YC8hD89bMX6l%2bdO2AzI%3d&risl=&pid=ImgRaw&r=0);
+}
+
+/* Basic styling for the body */
+body {
+    margin: 0; 
+    padding: 0;  /*removes default margin/padding set by bowser */
+    display: flex; 
+     /* flexbox layout (A type of layout that makes it easy to move things around. 
+     Feel free to explore others*/
+    justify-content: center; /* aligns children (hearts) to the center. HORIZONTALLY*/
+    align-items: center; /* aligns children (hearts) to the center. VERTICALLY*/ 
+    height: 100vh;
+    /*sets background color...can be set using a color like gray or hexCode */
+    overflow: hidden;  /*prevent hearts from overflowing outside the screen and adding a scrollbar lol */
+  }
+  /*og background color: #f0f0f0 */
+
+  .text{
+    font-size: 40px;
+
+  }
+
+
+  /* Container for the hearts */
+  #hearts-container {
+    top: 0;
+    bottom: 0;
+position: absolute;  
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Heart styling */
+  .heart {
+    position: absolute;
+    font-size: 40px; /* Initial size */
+    opacity: 0;  /*initally invisible */
+    animation: floatUp 6s infinite forwards, fadeIn 1s forwards; /*fading in animation */
+    transform: rotate(45deg);
+  }
+  
+  /* floating effect */
+  @keyframes floatUp {
+    0% {
+      transform: translateY(100vh) scale(1) rotate(45deg);
+      opacity: 1;
+      /*starts at bottom of screen (translate) with full opacity. Normal size */
+    }
+    50% {
+      transform: translateY(-200px) scale(1.5) rotate(45deg);
+      opacity: 0.8;
+      /* heart moves up by 200px and grows in size. opacity starts to decrease */
+    }
+    100% {
+      transform: translateY(-500px) scale(2) rotate(45deg);
+      opacity: 0;
+      /*further up, twice bigger, and fades out completely */
+    }
+  }
+  
+  /* fade-in effect */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      /*unable to see heart at the beginning */
+    }
+    100% {
+      opacity: 1;
+      /*make heart visible near end */
+    }
+  }
+  
